@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Page</title>
+    <title>Add Menu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.5/dist/sweetalert2.min.css">
     <style>
@@ -24,7 +24,7 @@
             <div class="col-md-6">
                 <div class="panel panel-primary">
                     <div class="text-center">
-                        <h1>Registration Form</h1>
+                        <h1>Add Menu Form</h1>
                     </div>
                     <div class="panel-body">
                         <form id="menuForm">
@@ -38,7 +38,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="price" class="form-label">Price:</label>
-                                <input type="text" class="form-control" id="price" name="price" required>
+                                <input type="number" class="form-control" id="price" name="price" required min="0" step="0.01">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -81,7 +81,7 @@
                   }
               },
               error: function (jqXHR, textStatus, errorThrown) {
-                  if (jqXHR.responseJSON) {  // Check if server sent specific message
+                  if (jqXHR.responseJSON) { 
                       Swal.fire('Error', jqXHR.responseJSON.message, 'error');
                   } else {
                       Swal.fire('Error', 'Could not send the data. Please try again later.', 'error');
