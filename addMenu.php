@@ -55,6 +55,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.5/dist/sweetalert2.all.min.js"></script>
     <script>
     $(document).ready(function () {
+        // for submit button events and validations
         $('#menuForm').submit(function (e) {
             e.preventDefault();
 
@@ -66,7 +67,7 @@
                 Swal.fire('Warning', 'All fields are required!', 'warning');
                 return;
             }
-
+            
             $.ajax({
               type: 'POST',
               url: 'connectdb.php',
@@ -81,13 +82,28 @@
                   }
               },
               error: function (jqXHR, textStatus, errorThrown) {
-                  if (jqXHR.responseJSON) { 
+                  if (jqXHR.responseJSON) {
                       Swal.fire('Error', jqXHR.responseJSON.message, 'error');
                   } else {
                       Swal.fire('Error', 'Could not send the data. Please try again later.', 'error');
                   }
               }
           });
+        });
+
+        // for price validations
+        $('#price').on('input', function () {
+            var allowedKeys = [46, 8, 9, 27, 13, 110, 190];
+            if (allowedKeys.indexOf(event.keyCode) !== -1 ||
+                (event.keyCode === 65 && (event.ctrlKey === true || event.metaKey === true)) ||
+                (event.keyCode >= 35 && event.keyCode <= 40)) {
+                return;
+            }
+            
+            if ((event.shiftKey || (event.keyCode < 48 || event.keyCode > 57)) && 
+                (event.keyCode < 96 || event.keyCode > 105)) {
+                event.preventDefault();
+            }
         });
     });
     </script>
