@@ -6,15 +6,74 @@
     <title>Add Menu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.5/dist/sweetalert2.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: lightyellow;
+            background-color: #f8f9fa;
+            font-family: 'Lato', sans-serif;
         }
+
         .container {
-            margin-top: 20px;
+            margin-top: 40px;
         }
+
         h1 {
-            color: #333366;
+            color: #2c3e50;
+        }
+
+        nav {
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .panel {
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .panel-body {
+            padding: 30px;
+        }
+
+        .panel-footer {
+            background-color: #f8f9fa;
+        }
+        
+        table {
+            transition: transform 0.3s;
+        }
+        table:hover {
+            transform: scale(1.01);
+        }
+
+        .modal-backdrop {
+    z-index: 1050 !important;
+        }
+
+        .modal {
+            z-index: 1060 !important;
+            border-radius: 10px;
+        }
+
+        .modal-content {
+            background-color: #f4e8db;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+        }
+        
+        .modal-header {
+            border-bottom: none;
+        }
+
+        .modal-footer {
+            border-top: none;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -133,13 +192,15 @@
                                 <label for="update_price" class="form-label">Price:</label>
                                 <input type="number" class="form-control" id="update_price" name="update_price" required min="0" step="0.01">
                             </div>
-                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.5/dist/sweetalert2.all.min.js"></script>
@@ -179,6 +240,15 @@
                   }
               }
           });
+        });
+
+        $(document).ready(function() {
+            $("#search").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#menuList tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
         });
         
         $('#price').on('input', function () {
