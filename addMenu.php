@@ -224,8 +224,9 @@
                     dataType: 'json',
                     success: function(data) {
                         if(data.status === 'success') {
-                            Swal.fire('Success', 'Menu updated successfully!', 'success');
-                            location.reload(); 
+                            Swal.fire('Success', `Menu successfully updated!`, 'success').then(() => {
+                                location.reload();
+                            });
                         } else {
                             Swal.fire('Error', 'Could not update menu.', 'error');
                         }
@@ -252,8 +253,9 @@
                             dataType: 'json',
                             success: function(data) {
                                 if(data.status === 'success') {
-                                    Swal.fire('Deleted!', 'Menu has been deleted.', 'success');
-                                    location.reload(); 
+                                    Swal.fire('Success', `Menu has been deleted permanently!`, 'success').then(() => {
+                                        location.reload();
+                                    });
                                 } else {
                                     Swal.fire('Error', 'Could not delete menu.', 'error');
                                 }
