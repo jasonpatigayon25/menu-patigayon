@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2023 at 04:40 PM
+-- Generation Time: Oct 21, 2023 at 02:35 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,15 +40,14 @@ CREATE TABLE `ref_menu` (
 
 INSERT INTO `ref_menu` (`id`, `menu_name`, `menu_desc`, `price`) VALUES
 (1, 'Chumpkin', 'Snack O Nice', '20.00'),
-(3, 'Hello Biscuit', 'Description cya', '10.00'),
-(4, 'Hello World', 'Hello2321312', '32.00'),
-(5, 'Albertos Biscuit', 'Description ni cya, Albertos Biscuit ', '80.00'),
-(6, 'Hollihee', 'This is a description. :D ', '15.00'),
-(7, 'Sample Menu', 'Hello Description 123 I am a Lebron Fan', '30.00'),
-(9, '123465', '123 I am a Lebron Fan', '70.00'),
-(10, 'Menu123', 'MenuDescription123', '123.00'),
-(12, 'Hello World Bread', 'DEscription 12312321321312321', '47.00'),
-(14, 'Snapfire', 'Cookie with the dinosuar snacks', '99.00');
+(2, 'Hello Biscuit', 'Description cya', '10.00'),
+(3, 'Hello World', 'Hello2321312', '32.00'),
+(4, 'Albertos Biscuit', 'Description ni cya, Albertos Biscuit ', '80.00'),
+(5, 'Hollihee', 'This is a description. :D ', '15.00'),
+(6, 'Sample Menu', 'Hello Description 123 I am a Lebron Fan', '30.00'),
+(7, 'Gen V', 'Welcome to God U, train your powers', '70.00'),
+(8, 'Menu123', 'MenuDescription123', '123.00'),
+(9, 'Snapfire', 'Cookie with the dinosuar snacks', '99.00');
 
 --
 -- Indexes for dumped tables
@@ -68,7 +67,7 @@ ALTER TABLE `ref_menu`
 -- AUTO_INCREMENT for table `ref_menu`
 --
 ALTER TABLE `ref_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -160,7 +160,7 @@
             
             $.ajax({
               type: 'POST',
-              url: 'connectdb.php',
+              url: 'addDb.php',
               data: $(this).serialize(),
               dataType: 'json',
               success: function (data) {
@@ -197,7 +197,7 @@
                 $('.editBtn').click(function() {
                 const id = $(this).data('id');
                 $.ajax({
-                    url: 'getMenuDetails.php',
+                    url: 'getDataDb.php',
                     type: 'GET',
                     data: { id: id },
                     dataType: 'json',
@@ -218,7 +218,7 @@
             $('#updateForm').submit(function(e) {
                 e.preventDefault();
                 $.ajax({
-                    url: 'updateMenuAction.php',
+                    url: 'updateDb.php',
                     type: 'POST',
                     data: $(this).serialize(),
                     dataType: 'json',
@@ -243,11 +243,11 @@
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: 'Delete now'
                 }).then((result) => {
                     if(result.isConfirmed) {
                         $.ajax({
-                            url: 'deleteMenuAction.php',
+                            url: 'deleteDb.php',
                             type: 'POST',
                             data: { id: id },
                             dataType: 'json',
